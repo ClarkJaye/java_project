@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Title  -->
+    <title>Landing Page</title>
+    <meta name="description"
+          content="Bootstrap 5 landing page template with flat design and fast loading. Create great website with Onekit landing page template." />
+
+    <!--Styles-->
+    <link rel="stylesheet" href="~/Content/assets/css/theme.css" />
+
+    <!-- Css Optimize -->
+    <!-- <link rel="stylesheet" href="dist/css/bundle.min.css"> -->
+    <!-- PWA Optimize -->
+    <meta name="theme-color" content="#5b2be0" />
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- Favicon  -->
+    <link href="~/Content/assets/img/logo.png" rel="icon" />
+    <link href="~/Content/assets/img/jclogo.png" rel="apple-touch-icon" />
+
+    <link href="~/Content/assets/css/login.css" rel="stylesheet" />
+
+    <!-- Vendor Css Files -->
+    <link href="~/Content/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+
+</head>
+
+<body id="top">
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .navbar {
+            background: transparent;
+            transition: background-color 0.3s ease;
+        }
+
+            .navbar.scrolled {
+                background-color: #fff;
+                color: black;
+            }
+
+            .navbar .navbar-collapse .nav-link.scrolled,
+            .navbar .container h2.scrolled {
+                color: black !important;
+            }
+    </style>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            const text = document.querySelectorAll(".navbar-collapse .nav-link");
+            const txtlogo = document.querySelector(".navbar .container h2");
+            const scrolled = window.scrollY > 0;
+
+            if (scrolled) {
+                navbar.classList.add("scrolled");
+                txtlogo.classList.add("scrolled");
+                text.forEach((link) => link.classList.add("scrolled"));
+            } else {
+                navbar.classList.remove("scrolled");
+                txtlogo.classList.remove("scrolled");
+                text.forEach((link) => link.classList.remove("scrolled"));
+            }
+        });
+    </script>
+
+    <!-- ========== { HEADER }==========  -->
+    <header>
+        <!-- Navbar -->
+        <nav class="main-nav navbar navbar-expand-lg hover-navbar dark-to-light fixed-top navbar-dark">
+            <div class="container">
+                <a class="navbar-brand main-logo" href="#">
+                    <h2 class="display-5 fw-bold text-white">
+                        <span class="text-warning">Activity</span>Hub
+                    </h2>
+                </a>
+
+                <!-- navbar toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo"
+                        aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- collapse menu -->
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                    </ul>
+                    <div class="d-grid d-lg-block my-3 my-lg-0 ms-0 ms-lg-4">
+                        <a id="LoginBtn" class="btn btn-warning btn-sm">Login</a>
+                    </div>
+                </div>
+                <!-- end collapse menu -->
+            </div>
+        </nav>
+        <!-- End Navbar -->
+    </header>
+    <!-- end header -->
+
+    <style>
+        body {
+            overflow-y: none;
+        }
+
+        #hero {
+            height: 100vh;
+        }
+
+        #LoginBtn {
+            cursor: pointer;
+        }
+
+        .modal-container {
+            position: relative;
+        }
+
+            .modal-container #close {
+                color: black;
+                font-size: 30px;
+                font-weight: bold;
+                cursor: pointer;
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                z-index: 999;
+                padding: 0 10px;
+                text-align: center;
+            }
+
+                .modal-container #close:hover {
+                    color: rgba(0, 0, 0, 0.527);
+                }
+
+        .form-link {
+            text-align: center;
+            margin: 10px 0;
+            width: 95%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #gender {
+            width: 90%;
+            background: transparent;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .error {
+            border: 2px solid red !important;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* Profile */
+        #file {
+            display: none;
+        }
+
+        #photo-name {
+            cursor: pointer;
+        }
+
+        .img-cont {
+            width: 90%;
+            margin: auto;
+        }
+
+        #choosen-img {
+            max-height: 300px;
+            width: 100%;
+            object-fit: contain;
+            border-radius: 5px;
+            margin: auto;
+        }
+
+        .photo-cont {
+            display: flex;
+            align-items: center;
+            padding: 5px 0 20px 0;
+        }
+
+        .photo-btn {
+            display: block;
+            position: relative;
+            background-color: #df4adf;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px 0;
+            width: 150px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .photo-btn:hover {
+                background-color: #c03cc0;
+            }
+
+        /* Error Message */
+        .statusMessage {
+            padding: 10px;
+            width: 75%;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .error {
+            color: #721c24 !important;
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+        }
+
+        .success {
+            color: #004085 !important;
+            background-color: #cce5ff !important;
+            border-color: #b8daff !important;
+        }
+
+        .d-none {
+            display: none;
+        }
+    </style>
+
+  
+
+
+    <!-- =========={ MAIN }==========  -->
+
+    @RenderBody()
+
+
+
+
+    <style>
+        .alertMessageTop {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            color: white;
+            background-color: #0000004f;
+            padding: 10px;
+            border-radius: 5px;
+            transform: .5s ease-in-out;
+        }
+
+        .d-none {
+            display: none;
+        }
+    </style>
+
+    <!-- =========={ FOOTER }==========  -->
+    <footer class="bg-secondary">
+        <!--Start footer copyright-->
+        <div class="footer-dark">
+            <div class="container py-4 border-top border-smooth">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="d-block my-3">
+                            Copyright &copy; Your Company | All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End footer copyright-->
+    </footer>
+    <!-- End Footer -->
+    <!-- =========={ SCROLL TO TOP }==========  -->
+    <a href="#top" class="p-3 border bg-body position-fixed end-1 bottom-1 z-index-10 back-top" title="Scroll To Top">
+        <!-- <i class="fas fa-arrow-up"></i> -->
+        <svg class="bi bi-arrow-up" width="1rem" height="1rem" viewBox="0 0 16 16" fill="currentColor"
+             xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
+            <path fill-rule="evenodd"
+                  d="M7.646 2.646a.5.5 0 01.708 0l3 3a.5.5 0 01-.708.708L8 3.707 5.354 6.354a.5.5 0 11-.708-.708l3-3z"
+                  clip-rule="evenodd"></path>
+        </svg>
+    </a>
+
+    <!-- Theme js -->
+    <script src="~/Content/assets/js/theme.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="~/Content/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!-- JS Customized -->
+    <script src="~/Content/assets/js/login.js"></script>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+
+    <script>
+        let uploadBtn = document.getElementById("file");
+        let imageCont = document.querySelector(".img-cont");
+        let choosenImage = document.getElementById("choosen-img");
+        let fileName = document.getElementById("photo-name");
+        console.log(uploadBtn);
+
+        uploadBtn.addEventListener("change", () => {
+            imageCont.style.display = "block";
+            let reader = new FileReader();
+            reader.readAsDataURL(uploadBtn.files[0]);
+            console.log(uploadBtn.files[0].name);
+            reader.onload = () => {
+                choosenImage.setAttribute("src", reader.result);
+            };
+            fileName.textContent = uploadBtn.files[0].name;
+        });
+    </script>
+
+    <!-- AJAX -->
+
+    @*<script>
+
+        $(document).on('submit', '#registerUser', function (e) {
+            e.preventDefault();
+
+            var formData = new FormData(this);
+            formData.append("save_user", true);
+
+            $.ajax({
+                type: "POST",
+                url: "src/register.php",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    var res = jQuery.parseJSON(response);
+                    console.log(res)
+                    if (res.status == 422) {
+                        $('#errorMessageReg').removeClass('d-none');
+                        $('#errorMessageReg').addClass('error');
+                        $('#errorMessageReg').text(res.message);
+
+                    } else if (res.status == 400) {
+                        $('#errorMessageReg').addClass('d-none');
+                        $('#signModal').css('display', 'none');
+                        $('#registerUser')[0].reset();
+                        $('#photo-name').text('');
+                        $('.alertMessageTop').removeClass('d-none');
+                        $('.alertMessageTop').text(res.message);
+
+                        setTimeout(function () {
+                            $('.alertMessageTop').addClass('d-none');
+                        }, 3000);
+                        setTimeout(function () {
+                            $('.alertMessageTop').text('');
+                            $('.alertMessageTop').removeClass('d-none');
+                        }, 3100);
+
+                    } else if (res.status == 450) {
+                        $('#errorMessageReg').removeClass('d-none');
+                        $('#errorMessageReg').addClass('error');
+                        $('#errorMessageReg').text(res.message);
+
+                    }
+                }
+            });
+
+        });
+
+
+        $(document).on('submit', '#loginUser', function (e) {
+            e.preventDefault();
+
+            var formData = new FormData(this);
+            formData.append("login_user", true);
+
+            $.ajax({
+                type: "POST",
+                url: "src/login.php",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    var res = JSON.parse(response);
+                    console.log(res);
+
+                    if (res.status == 422) {
+                        $('#errorMessage').removeClass('d-none');
+                        $('#errorMessage').addClass('error');
+                        $('#errorMessage').text(res.message);
+                    } else if (res.status == 400) {
+                        $('#errorMessage').removeClass('d-none');
+                        $('#errorMessage').removeClass('error');
+                        $('#errorMessage').addClass('success');
+                        $('#errorMessage').text(res.message)
+
+                        setTimeout(function () {
+                            $('#loginUser')[0].reset();
+                            $('#errorMessage').addClass('d-none');
+
+                        }, 1200);
+                        setTimeout(function () {
+                            window.location.href = res.redirect;
+
+                        }, 1000);
+
+
+                    }
+
+
+                }
+            });
+        });
+
+
+
+
+
+
+
+    </script>*@
+
+
+</body>
+
+</html>

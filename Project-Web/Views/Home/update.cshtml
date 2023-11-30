@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "update";
+}
+
+<!-- Existing code... -->
+
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">First Name</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter firstname" value="@ViewBag.User.firstname">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="exampleInputEmail2">Last Name</label>
+        <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter lastname" value="@ViewBag.User.lastname">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="@ViewBag.User.password">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="exampleinputemail3">Role Id</label>
+        <input type="email" class="form-control" id="exampleinputemail3" aria-describedby="emailhelp" placeholder="Role Id" value="@ViewBag.User.roleId">
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!-- Remaining code... -->
